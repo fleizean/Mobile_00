@@ -99,7 +99,7 @@ Tüm `evaluate` çağrısı `try/catch` içinde. `isNaN`, `isInfinite` kontrolle
 
 ---
 
-## Sık Sorulabilecek Sorular
+## Değinilse İyi Olur
 
 **Flutter'da hot reload ne işe yarar?**  
 Uygulamayı yeniden başlatmadan kod değişikliklerini anında yansıtır. State korunur. `r` tuşuyla çalışır. Hot restart (`R`) ise state'i sıfırlar.
@@ -113,9 +113,6 @@ Widget ilk oluşturulduğunda ve `setState()` çağrıldığında.
 **Neden `const` constructor kullanıyoruz?**  
 `const` widget'lar derleme zamanında oluşturulur, rebuild sırasında yeniden yaratılmaz. Performans için iyi pratik.
 
-**Evaluatör uygulamayı kendi bilgisayarında mı çalıştırır?**  
-Evet. Subject'e göre değerlendirme evaluatör'ün bilgisayarında gerçekleşir. Klasör ve dosya isimlerinin doğru olduğundan emin ol.
-
 ---
 
 ## Çalıştırma
@@ -128,12 +125,6 @@ flutter run
 flutter run -d chrome
 # → F12 > Console sekmesinde debug çıktısını görürsün
 ```
-
-> **Not — Web'de `debugPrint`:**  
-> `web-server` modunda (`flutter run -d web-server`) `debugPrint` çıktısı terminale değil,
-> tarayıcının DevTools konsoluna gider (F12 → Console). Terminal'de görünmez.  
-> `-d chrome` ile çalıştırırsan F12 konsolunda görürsün.  
-> Gerçek evaluasyon için Android emulator kullan — subject native Android çıktısını bekliyor.
 
 ---
 
