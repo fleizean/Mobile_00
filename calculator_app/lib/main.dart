@@ -26,6 +26,7 @@ class CalculatorPage extends StatefulWidget {
 class _CalculatorPageState extends State<CalculatorPage> {
   String _expression = '';
   String _result = '0';
+  bool _justCalculated = false;
 
   static const List<String> _buttons = [
     '7', '8', '9', 'C', 'AC',
@@ -41,14 +42,22 @@ class _CalculatorPageState extends State<CalculatorPage> {
         case 'AC':
           _expression = '';
           _result = '0';
+          _justCalculated = false;
         case 'C':
           if (_expression.isNotEmpty) {
             _expression = _expression.substring(0, _expression.length - 1);
           }
         case '=':
           _result = _evaluate(_expression);
+          _justCalculated = true;
         default:
-          _expression += label;
+          if (_justCalculated) {
+            final isOperator = ['+', '-', '*', '/'].contains(label);
+            _expression = isOperator ? _result + label : label;
+            _justCalculated = false;
+          } else {
+            _expression += label;
+          }
       }
     });
   }
